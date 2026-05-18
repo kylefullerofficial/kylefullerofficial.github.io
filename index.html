@@ -109,10 +109,13 @@
     position: relative; background: var(--charcoal);
     overflow: hidden;
   }
-  .hero-right::before {
+ .hero-right::before {
     content: '';
     position: absolute; inset: 0;
-    background: linear-gradient(135deg, #1e1c1a 0%, #0a0a0a 60%);
+    background: linear-gradient(to right, rgba(10,10,10,0.35) 0%, transparent 60%);
+    z-index: 3;
+    pointer-events: none;
+  };
   }
   .hero-photo-placeholder {
     position: absolute; inset: 0;
@@ -127,12 +130,10 @@
     line-height: 1;
     user-select: none;
   }
-  .hero-photo-box {
-    width: 220px; height: 260px;
-    border: 2px dashed rgba(201,168,76,0.35);
-    display: flex; align-items: center; justify-content: center;
-    flex-direction: column; gap: 0.6rem;
-    position: relative; z-index: 2;
+    .hero-photo-box {
+    position: absolute; inset: 0;
+    z-index: 2;
+  };
   }
   .hero-photo-box svg { opacity: 0.4; }
   .hero-photo-box p { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--warm-gray); }
