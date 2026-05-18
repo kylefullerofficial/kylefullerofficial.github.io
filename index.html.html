@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Kyle Fuller | Content Creator & Brand Partner</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --black: #0a0a0a;
+    --off-white: #f5f1eb;
+    --cream: #ede8df;
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --warm-gray: #8a8078;
+    --charcoal: #1e1c1a;
+    --accent: #d4691e;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--black);
+    color: var(--off-white);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; width: 100%; z-index: 100;
+    padding: 1.2rem 3rem;
+    display: flex; justify-content: space-between; align-items: center;
+    background: linear-gradient(to bottom, rgba(10,10,10,0.95), transparent);
+    backdrop-filter: blur(4px);
+  }
+  .nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.6rem;
+    letter-spacing: 0.12em;
+    color: var(--gold);
+    text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    color: var(--off-white); text-decoration: none;
+    font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase;
+    opacity: 0.75; transition: opacity 0.2s, color 0.2s;
+  }
+  .nav-links a:hover { opacity: 1; color: var(--gold); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-left {
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 7rem 3rem 5rem 4rem;
+    position: relative; z-index: 2;
+  }
+  .hero-tag {
+    font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 1.2rem;
+    display: flex; align-items: center; gap: 0.8rem;
+  }
+  .hero-tag::before { content: ''; display: block; width: 2rem; height: 1px; background: var(--gold); }
+  h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(4.5rem, 9vw, 8.5rem);
+    line-height: 0.92;
+    letter-spacing: 0.02em;
+  }
+  h1 span { color: var(--gold); }
+  .hero-subtitle {
+    margin-top: 1.8rem;
+    font-size: 1rem; font-weight: 300; line-height: 1.7;
+    color: rgba(245,241,235,0.7);
+    max-width: 38ch;
+  }
+  .hero-cta-group { margin-top: 2.5rem; display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary {
+    padding: 0.85rem 2.2rem;
+    background: var(--gold);
+    color: var(--black);
+    font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 700;
+    text-decoration: none; border: none; cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+  .btn-outline {
+    padding: 0.85rem 2.2rem;
+    background: transparent;
+    color: var(--off-white);
+    border: 1px solid rgba(245,241,235,0.3);
+    font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 500;
+    text-decoration: none; cursor: pointer;
+    transition: border-color 0.2s, color 0.2s, transform 0.15s;
+  }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
+
+  .hero-right {
+    position: relative; background: var(--charcoal);
+    overflow: hidden;
+  }
+  .hero-right::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, #1e1c1a 0%, #0a0a0a 60%);
+  }
+  .hero-photo-placeholder {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column; gap: 1rem; z-index: 1;
+  }
+  .hero-initials {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 10rem; color: rgba(201,168,76,0.08);
+    letter-spacing: 0.1em;
+    position: absolute; bottom: -1rem; right: -1rem;
+    line-height: 1;
+    user-select: none;
+  }
+  .hero-photo-box {
+    width: 220px; height: 260px;
+    border: 2px dashed rgba(201,168,76,0.35);
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column; gap: 0.6rem;
+    position: relative; z-index: 2;
+  }
+  .hero-photo-box svg { opacity: 0.4; }
+  .hero-photo-box p { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--warm-gray); }
+  .hero-badge {
+    position: absolute; bottom: 3rem; left: -1.5rem;
+    background: var(--gold); color: var(--black);
+    padding: 1rem 1.5rem;
+    z-index: 3;
+    box-shadow: 8px 8px 0 rgba(0,0,0,0.5);
+  }
+  .hero-badge strong { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; display: block; line-height: 1; }
+  .hero-badge span { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; }
+  .hero-netflix {
+    position: absolute; top: 3rem; right: 2rem;
+    background: rgba(10,10,10,0.85);
+    border: 1px solid rgba(201,168,76,0.3);
+    padding: 0.6rem 1rem;
+    font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--gold); z-index: 3;
+  }
+
+  /* ── STATS ── */
+  .stats-strip {
+    background: var(--gold);
+    padding: 2.5rem 4rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
+  .stat-item { text-align: center; }
+  .stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3rem; color: var(--black); line-height: 1;
+  }
+  .stat-label {
+    font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: rgba(10,10,10,0.65); margin-top: 0.3rem;
+  }
+  .stat-platform { font-size: 0.75rem; font-weight: 700; color: var(--black); margin-top: 0.2rem; }
+
+  /* ── SECTION BASE ── */
+  section { padding: 6rem 4rem; }
+  .section-label {
+    font-size: 0.65rem; letter-spacing: 0.35em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 1rem;
+    display: flex; align-items: center; gap: 0.8rem;
+  }
+  .section-label::after { content: ''; flex: 1; max-width: 3rem; height: 1px; background: var(--gold); }
+  h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.8rem, 5vw, 4.5rem);
+    line-height: 1.0;
+    letter-spacing: 0.03em;
+  }
+  h2 em { font-family: 'Playfair Display', serif; font-style: italic; color: var(--gold); font-size: 0.9em; }
+
+  /* ── ABOUT ── */
+  #about { background: var(--charcoal); }
+  .about-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 5rem; align-items: start; margin-top: 3.5rem; }
+  .about-photo {
+    aspect-ratio: 3/4;
+    background: #111;
+    border: 1px dashed rgba(201,168,76,0.35);
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column; gap: 0.6rem;
+    position: relative;
+  }
+  .about-photo::after {
+    content: '';
+    position: absolute; bottom: -12px; right: -12px;
+    width: 100%; height: 100%;
+    border: 1px solid var(--gold);
+    z-index: -1;
+  }
+  .about-photo p { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--warm-gray); }
+  .about-text p {
+    font-size: 1rem; line-height: 1.8; color: rgba(245,241,235,0.75);
+    margin-bottom: 1.2rem;
+  }
+  .about-text p strong { color: var(--off-white); font-weight: 500; }
+  .about-highlights {
+    margin-top: 2rem;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+  }
+  .highlight-pill {
+    padding: 0.7rem 1rem;
+    border: 1px solid rgba(201,168,76,0.25);
+    font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  /* ── NICHES ── */
+  #niches { background: var(--black); }
+  .niche-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 1px;
+    margin-top: 3rem;
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+  .niche-card {
+    padding: 2rem 1.5rem;
+    background: var(--charcoal);
+    text-align: center;
+    transition: background 0.2s;
+    cursor: default;
+  }
+  .niche-card:hover { background: #28251f; }
+  .niche-icon { font-size: 1.8rem; margin-bottom: 0.8rem; }
+  .niche-name { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(245,241,235,0.65); }
+
+  /* ── AUDIENCE ── */
+  #audience { background: var(--charcoal); }
+  .audience-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 4rem; align-items: center; margin-top: 3rem; }
+  .audience-stats { display: flex; flex-direction: column; gap: 1.2rem; }
+  .aud-bar-item {}
+  .aud-bar-label { display: flex; justify-content: space-between; margin-bottom: 0.4rem; font-size: 0.78rem; color: rgba(245,241,235,0.7); }
+  .aud-bar-track { height: 4px; background: rgba(255,255,255,0.08); border-radius: 2px; }
+  .aud-bar-fill { height: 100%; background: var(--gold); border-radius: 2px; transition: width 1s ease; }
+  .aud-notes { display: flex; flex-direction: column; gap: 1rem; }
+  .aud-note {
+    padding: 1.5rem;
+    border-left: 3px solid var(--gold);
+    background: rgba(0,0,0,0.2);
+  }
+  .aud-note strong { font-size: 1.8rem; font-family: 'Bebas Neue', sans-serif; color: var(--gold); display: block; }
+  .aud-note span { font-size: 0.75rem; color: rgba(245,241,235,0.6); letter-spacing: 0.05em; }
+
+  /* ── PORTFOLIO ── */
+  #portfolio { background: var(--black); }
+  .portfolio-intro { max-width: 55ch; margin-top: 0.5rem; color: rgba(245,241,235,0.6); line-height: 1.7; }
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+  .video-card {
+    position: relative; aspect-ratio: 9/16;
+    background: #111;
+    border: 1px dashed rgba(201,168,76,0.2);
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.2s, border-color 0.2s;
+  }
+  .video-card:hover { transform: translateY(-4px); border-color: var(--gold); }
+  .video-inner {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 0.8rem;
+  }
+  .play-btn {
+    width: 52px; height: 52px;
+    border: 1.5px solid rgba(201,168,76,0.5);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .video-card:hover .play-btn { background: var(--gold); border-color: var(--gold); }
+  .play-btn svg { fill: var(--gold); transition: fill 0.2s; margin-left: 3px; }
+  .video-card:hover .play-btn svg { fill: var(--black); }
+  .video-label {
+    font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: rgba(245,241,235,0.4);
+    text-align: center; padding: 0 1rem;
+  }
+  .video-niche {
+    position: absolute; top: 0.8rem; left: 0.8rem;
+    background: var(--gold); color: var(--black);
+    padding: 0.25rem 0.6rem;
+    font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 700;
+  }
+  .video-url-hint {
+    position: absolute; bottom: 0.8rem; left: 0; right: 0;
+    text-align: center;
+    font-size: 0.6rem; letter-spacing: 0.08em;
+    color: rgba(245,241,235,0.25);
+    padding: 0 0.5rem;
+  }
+
+  /* ── BRANDS ── */
+  #brands { background: var(--charcoal); }
+  .brands-note { color: rgba(245,241,235,0.55); font-size: 0.9rem; line-height: 1.7; margin-top: 0.5rem; max-width: 50ch; }
+  .brands-scroll { margin-top: 3rem; }
+  .brands-ticker {
+    display: flex; gap: 2rem; flex-wrap: wrap;
+  }
+  .brand-chip {
+    padding: 0.6rem 1.4rem;
+    border: 1px solid rgba(201,168,76,0.18);
+    font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
+    color: rgba(245,241,235,0.5);
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .brand-chip:hover { border-color: var(--gold); color: var(--gold); }
+
+  /* ── NETFLIX ── */
+  .netflix-section {
+    background: #0a0a0a;
+    padding: 5rem 4rem;
+    border-top: 1px solid rgba(201,168,76,0.12);
+    border-bottom: 1px solid rgba(201,168,76,0.12);
+  }
+  .netflix-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2.5rem; }
+  .netflix-card {
+    padding: 2.5rem;
+    background: var(--charcoal);
+    border-left: 3px solid var(--accent);
+    position: relative;
+  }
+  .netflix-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1rem; letter-spacing: 0.1em;
+    color: var(--accent); margin-bottom: 0.5rem;
+  }
+  .netflix-show { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 700; }
+  .netflix-desc { font-size: 0.85rem; color: rgba(245,241,235,0.55); margin-top: 0.6rem; line-height: 1.6; }
+
+  /* ── SOCIAL ── */
+  #social { background: var(--black); }
+  .social-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: 3rem; }
+  .social-card {
+    padding: 2rem 1.5rem;
+    background: var(--charcoal);
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+    border: 1px solid rgba(255,255,255,0.06);
+    transition: border-color 0.2s, transform 0.15s;
+    display: block;
+  }
+  .social-card:hover { border-color: var(--gold); transform: translateY(-3px); }
+  .social-icon { font-size: 2rem; margin-bottom: 1rem; }
+  .social-handle { font-size: 0.85rem; font-weight: 500; color: var(--gold); margin-bottom: 0.3rem; }
+  .social-followers { font-family: 'Bebas Neue', sans-serif; font-size: 2.2rem; line-height: 1; margin-bottom: 0.3rem; }
+  .social-platform { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--warm-gray); }
+
+  /* ── CONTACT ── */
+  #contact {
+    background: var(--gold);
+    padding: 6rem 4rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+  #contact h2 { color: var(--black); }
+  .contact-label { color: rgba(10,10,10,0.55); font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase; margin-bottom: 0.8rem; }
+  .contact-right {}
+  .contact-email {
+    display: block;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(1.4rem, 2.5vw, 2rem);
+    color: var(--black);
+    text-decoration: none;
+    border-bottom: 2px solid rgba(10,10,10,0.2);
+    padding-bottom: 0.5rem;
+    margin-bottom: 2rem;
+    transition: border-color 0.2s;
+    word-break: break-all;
+  }
+  .contact-email:hover { border-color: var(--black); }
+  .contact-social { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .social-pill {
+    padding: 0.5rem 1rem;
+    background: rgba(10,10,10,0.12);
+    color: var(--black);
+    font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .social-pill:hover { background: rgba(10,10,10,0.22); }
+  .contact-tagline {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem; font-style: italic;
+    color: rgba(10,10,10,0.65);
+    margin-top: 1.5rem;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--black);
+    padding: 2rem 4rem;
+    display: flex; justify-content: space-between; align-items: center;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  footer p { font-size: 0.72rem; color: var(--warm-gray); letter-spacing: 0.08em; }
+
+  /* ── BRAND LOGOS ── */
+  .brand-logo-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2px;
+    margin-top: 3rem;
+    background: rgba(255,255,255,0.04);
+  }
+  .brand-logo-cell {
+    background: var(--charcoal);
+    aspect-ratio: 2.4/1;
+    display: flex; align-items: center; justify-content: center;
+    padding: 1.2rem 1.5rem;
+    transition: background 0.2s;
+    cursor: default;
+    position: relative;
+  }
+  .brand-logo-cell:hover { background: #2a2620; }
+  .brand-logo-img {
+    max-width: 100%; max-height: 44px;
+    width: auto; height: auto;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+    opacity: 0.5;
+    transition: opacity 0.2s;
+  }
+  .brand-logo-cell:hover .brand-logo-img { opacity: 0.9; }
+  .brand-logo-fallback {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(0.85rem, 1.5vw, 1.15rem);
+    letter-spacing: 0.12em;
+    color: rgba(245,241,235,0.5);
+    text-align: center;
+    transition: color 0.2s;
+    line-height: 1.2;
+  }
+  .brand-logo-cell:hover .brand-logo-fallback { color: var(--gold); }
+
+  /* ── SERVICES ── */
+  #services { background: var(--black); }
+  .services-intro { color: rgba(245,241,235,0.6); font-size: 0.95rem; line-height: 1.7; max-width: 55ch; margin-top: 0.4rem; }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+  .service-card {
+    background: var(--charcoal);
+    border: 1px solid rgba(201,168,76,0.12);
+    padding: 2rem;
+    transition: border-color 0.2s, transform 0.15s;
+  }
+  .service-card:hover { border-color: rgba(201,168,76,0.45); transform: translateY(-3px); }
+  .service-icon { font-size: 1.8rem; margin-bottom: 1rem; }
+  .service-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.3rem; letter-spacing: 0.06em; color: var(--gold);
+    margin-bottom: 0.6rem;
+  }
+  .service-desc { font-size: 0.82rem; line-height: 1.65; color: rgba(245,241,235,0.6); }
+  .service-includes {
+    margin-top: 1.2rem;
+    display: flex; flex-direction: column; gap: 0.4rem;
+  }
+  .service-includes li {
+    font-size: 0.73rem; letter-spacing: 0.05em;
+    color: rgba(245,241,235,0.5);
+    list-style: none;
+    display: flex; align-items: flex-start; gap: 0.5rem;
+  }
+  .service-includes li::before { content: '→'; color: var(--gold); flex-shrink: 0; }
+  .service-note {
+    margin-top: 1.2rem;
+    padding: 0.6rem 0.8rem;
+    background: rgba(201,168,76,0.06);
+    border-left: 2px solid var(--gold);
+    font-size: 0.7rem; color: var(--gold); letter-spacing: 0.05em;
+  }
+  .services-addons {
+    margin-top: 2.5rem;
+    padding: 2rem;
+    background: var(--charcoal);
+    border: 1px solid rgba(201,168,76,0.12);
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem;
+  }
+  .addon-item { display: flex; align-items: flex-start; gap: 0.6rem; }
+  .addon-item span { font-size: 0.78rem; color: rgba(245,241,235,0.55); line-height: 1.5; }
+  .addon-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--gold); margin-top: 0.45rem; flex-shrink: 0; }
+  .services-cta {
+    margin-top: 2.5rem;
+    padding: 2rem;
+    background: rgba(201,168,76,0.06);
+    border: 1px dashed rgba(201,168,76,0.3);
+    display: flex; justify-content: space-between; align-items: center; gap: 2rem; flex-wrap: wrap;
+  }
+  .services-cta p { font-size: 0.9rem; color: rgba(245,241,235,0.65); max-width: 50ch; }
+  .services-cta strong { color: var(--off-white); }
+
+  @media (max-width: 900px) {
+    .brand-logo-grid { grid-template-columns: repeat(3, 1fr); }
+    .services-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 560px) {
+    .brand-logo-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero-left > * { animation: fadeUp 0.7s ease both; }
+  .hero-left > *:nth-child(1) { animation-delay: 0.1s; }
+  .hero-left > *:nth-child(2) { animation-delay: 0.25s; }
+  .hero-left > *:nth-child(3) { animation-delay: 0.4s; }
+  .hero-left > *:nth-child(4) { animation-delay: 0.55s; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; }
+    .hero-right { display: none; }
+    .hero-left { padding: 8rem 1.5rem 4rem; }
+    .stats-strip { grid-template-columns: repeat(2, 1fr); padding: 2rem 1.5rem; }
+    section { padding: 4rem 1.5rem; }
+    .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .about-photo { max-width: 280px; }
+    .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+    .social-grid { grid-template-columns: repeat(2, 1fr); }
+    .audience-grid { grid-template-columns: 1fr; }
+    .netflix-grid { grid-template-columns: 1fr; }
+    #contact { grid-template-columns: 1fr; gap: 2rem; padding: 4rem 1.5rem; }
+    footer { flex-direction: column; gap: 1rem; text-align: center; padding: 1.5rem; }
+  }
+  @media (max-width: 560px) {
+    .portfolio-grid { grid-template-columns: 1fr; }
+    .about-highlights { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Kyle Fuller</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#audience">Audience</a></li>
+    <li><a href="#brands">Brands</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-tag">Content Creator &amp; Brand Partner</div>
+    <h1>KYLE<br><span>FULLER</span></h1>
+    <p class="hero-subtitle">Millennial husband. Father. Storyteller. Turning authentic moments into content that converts — with over <strong>4.5 million followers</strong> across platforms and a loyal community that brands dream about.</p>
+    <div class="hero-cta-group">
+      <a href="#portfolio" class="btn-primary">View Portfolio</a>
+      <a href="#contact" class="btn-outline">Work With Me</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-photo-placeholder">
+      <div class="hero-photo-box">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="1">
+          <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
+        </svg>
+        <p>Add hero photo here</p>
+      </div>
+      <div class="hero-initials">KF</div>
+    </div>
+    <div class="hero-badge">
+      <strong>4.5M+</strong>
+      <span>Total Followers</span>
+    </div>
+    <div class="hero-netflix">★ Netflix Featured Creator</div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-strip">
+  <div class="stat-item">
+    <div class="stat-num">1.4M</div>
+    <div class="stat-platform">Instagram</div>
+    <div class="stat-label">Followers</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">2.6M</div>
+    <div class="stat-platform">TikTok</div>
+    <div class="stat-label">Followers</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">500K</div>
+    <div class="stat-platform">Facebook</div>
+    <div class="stat-label">Followers</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">43K</div>
+    <div class="stat-platform">YouTube</div>
+    <div class="stat-label">Subscribers</div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-label">About Kyle</div>
+  <h2>More Than <em>Content</em> —<br>A Movement</h2>
+  <div class="about-grid">
+    <div>
+      <div class="about-photo">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="1">
+          <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
+        </svg>
+        <p>Add photo here</p>
+      </div>
+    </div>
+    <div class="about-text">
+      <p>Kyle Fuller is a <strong>Black &amp; Hispanic millennial creator</strong> who has been building an authentic digital presence since 2023. As a married father, he brings a rare and refreshing perspective — balancing real life with real relatability.</p>
+      <p>His content resonates because it's genuinely <strong>him</strong>: the humor, the fatherhood moments, the fashion choices, the cooking experiments, the relationship advice. His primarily female audience trusts his recommendations like they trust a close friend.</p>
+      <p>Featured on <strong>Netflix's The Circle and Battle Camp</strong>, Kyle brings mainstream visibility and entertainment credibility to every brand partnership he takes on. With 100+ brand collaborations across diverse niches, he knows how to tell a brand's story in a way that feels native — not forced.</p>
+      <div class="about-highlights">
+        <div class="highlight-pill">📺 Netflix: The Circle</div>
+        <div class="highlight-pill">📺 Netflix: Battle Camp</div>
+        <div class="highlight-pill">🤝 100+ Brand Deals</div>
+        <div class="highlight-pill">📅 Creating Since 2023</div>
+        <div class="highlight-pill">👨‍👩‍👧 Married Father</div>
+        <div class="highlight-pill">🌎 Multi-Cultural Voice</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NICHES -->
+<section id="niches" style="background: var(--black);">
+  <div class="section-label">Content Niches</div>
+  <h2>Versatile. Authentic.<br><em>On Brand.</em></h2>
+  <div class="niche-grid">
+    <div class="niche-card"><div class="niche-icon">👔</div><div class="niche-name">Fashion</div></div>
+    <div class="niche-card"><div class="niche-icon">📱</div><div class="niche-name">Tech</div></div>
+    <div class="niche-card"><div class="niche-icon">👨‍👧</div><div class="niche-name">Fatherhood</div></div>
+    <div class="niche-card"><div class="niche-icon">💪</div><div class="niche-name">Fitness</div></div>
+    <div class="niche-card"><div class="niche-icon">🐾</div><div class="niche-name">Pet</div></div>
+    <div class="niche-card"><div class="niche-icon">💍</div><div class="niche-name">Marriage</div></div>
+    <div class="niche-card"><div class="niche-icon">🍳</div><div class="niche-name">Cooking</div></div>
+    <div class="niche-card"><div class="niche-icon">🧹</div><div class="niche-name">Cleaning</div></div>
+    <div class="niche-card"><div class="niche-icon">🧴</div><div class="niche-name">Skincare</div></div>
+    <div class="niche-card"><div class="niche-icon">❤️</div><div class="niche-name">Relationships</div></div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio">
+  <div class="section-label">Content Portfolio</div>
+  <h2>The Work <em>Speaks</em></h2>
+  <p class="portfolio-intro">A curated selection of brand collaborations and organic content spanning multiple niches. Each video is crafted to feel native to the platform while delivering the brand message authentically. <strong style="color: var(--gold);">Additional examples of past work are available upon request.</strong></p>
+  <div class="portfolio-grid">
+
+    <!-- Card 1 -->
+    <div class="video-card">
+      <div class="video-niche">Fashion</div>
+      <div class="video-inner">
+        <div class="play-btn">
+          <svg width="14" height="16" viewBox="0 0 14 16"><path d="M0 0L14 8L0 16V0Z"/></svg>
+        </div>
+        <div class="video-label">Add video URL or embed</div>
+      </div>
+      <div class="video-url-hint">Paste video link or replace with &lt;iframe&gt;</div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="video-card">
+      <div class="video-niche">Fatherhood</div>
+      <div class="video-inner">
+        <div class="play-btn">
+          <svg width="14" height="16" viewBox="0 0 14 16"><path d="M0 0L14 8L0 16V0Z"/></svg>
+        </div>
+        <div class="video-label">Add video URL or embed</div>
+      </div>
+      <div class="video-url-hint">Paste video link or replace with &lt;iframe&gt;</div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="video-card">
+      <div class="video-niche">Tech</div>
+      <div class="video-inner">
+        <div class="play-btn">
+          <svg width="14" height="16" viewBox="0 0 14 16"><path d="M0 0L14 8L0 16V0Z"/></svg>
+        </div>
+        <div class="video-label">Add video URL or embed</div>
+      </div>
+      <div class="video-url-hint">Paste video link or replace with &lt;iframe&gt;</div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="video-card">
+      <div class="video-niche">Fitness</div>
+      <div class="video-inner">
+        <div class="play-btn">
+          <svg width="14" height="16" viewBox="0 0 14 16"><path d="M0 0L14 8L0 16V0Z"/></svg>
+        </div>
+        <div class="video-label">Add video URL or embed</div>
+      </div>
+      <div class="video-url-hint">Paste video link or replace with &lt;iframe&gt;</div>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="video-card">
+      <div class="video-niche">Skincare</div>
+      <div class="video-inner">
+        <div class="play-btn">
+          <svg width="14" height="16" viewBox="0 0 14 16"><path d="M0 0L14 8L0 16V0Z"/></svg>
+        </div>
+        <div class="video-label">Add video URL or embed</div>
+      </div>
+      <div class="video-url-hint">Paste video link or replace with &lt;iframe&gt;</div>
+    </div>
+
+    <!-- Card 6 -->
+    <div class="video-card">
+      <div class="video-niche">Cooking</div>
+      <div class="video-inner">
+        <div class="play-btn">
+          <svg width="14" height="16" viewBox="0 0 14 16"><path d="M0 0L14 8L0 16V0Z"/></svg>
+        </div>
+        <div class="video-label">Add video URL or embed</div>
+      </div>
+      <div class="video-url-hint">Paste video link or replace with &lt;iframe&gt;</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- AUDIENCE -->
+<section id="audience">
+  <div class="section-label">Audience Insights</div>
+  <h2>The People <em>Brands</em><br>Want to Reach</h2>
+  <div class="audience-grid">
+    <div class="audience-stats">
+      <p style="color: rgba(245,241,235,0.6); margin-bottom: 1.5rem; font-size: 0.9rem; line-height: 1.6;">Kyle's community is a brand's dream demographic — highly engaged, fiercely loyal, and purchase-ready. Here's a look at who's tuned in across platforms.</p>
+      <div class="aud-bar-item">
+        <div class="aud-bar-label"><span>Women</span><span>~77%</span></div>
+        <div class="aud-bar-track"><div class="aud-bar-fill" style="width: 77%"></div></div>
+      </div>
+      <div class="aud-bar-item">
+        <div class="aud-bar-label"><span>Ages 25–44 (Millennial Core)</span><span>~55%</span></div>
+        <div class="aud-bar-track"><div class="aud-bar-fill" style="width: 55%"></div></div>
+      </div>
+      <div class="aud-bar-item">
+        <div class="aud-bar-label"><span>US-Based</span><span>~80%</span></div>
+        <div class="aud-bar-track"><div class="aud-bar-fill" style="width: 80%"></div></div>
+      </div>
+      <div class="aud-bar-item">
+        <div class="aud-bar-label"><span>Multicultural Audience</span><span>~55%</span></div>
+        <div class="aud-bar-track"><div class="aud-bar-fill" style="width: 55%"></div></div>
+      </div>
+      <p style="font-size: 0.65rem; color: var(--warm-gray); margin-top: 1rem; letter-spacing: 0.05em;">* Based on cross-platform analytics. Full media kit with platform-specific breakdowns available on request.</p>
+    </div>
+    <div class="aud-notes">
+      <div class="aud-note">
+        <strong>77%</strong>
+        <span>Female audience — high purchase-intent shoppers in key lifestyle & household categories</span>
+      </div>
+      <div class="aud-note">
+        <strong>55%</strong>
+        <span>Millennial core (ages 25–44) — brand-loyal, digitally native, and spending-ready</span>
+      </div>
+      <div class="aud-note">
+        <strong>80%</strong>
+        <span>US-based audience — premium CPM territory, ideal for domestic brand campaigns</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NETFLIX -->
+<div class="netflix-section">
+  <div class="section-label">As Seen On</div>
+  <h2>Mainstream <em>Visibility</em></h2>
+  <div class="netflix-grid">
+    <div class="netflix-card">
+      <div class="netflix-logo">NETFLIX</div>
+      <div class="netflix-show">The Circle</div>
+      <div class="netflix-desc">Competed on Netflix's fan-favorite social strategy game — building alliances, managing perception, and proving his authentic likability translates far beyond the feed.</div>
+    </div>
+    <div class="netflix-card">
+      <div class="netflix-logo">NETFLIX</div>
+      <div class="netflix-show">Battle Camp</div>
+      <div class="netflix-desc">Brought energy, personality, and his signature charisma to Netflix's competitive series — further cementing his mainstream entertainment credibility.</div>
+    </div>
+  </div>
+</div>
+
+<!-- BRANDS -->
+<section id="brands">
+  <div class="section-label">Brand Experience</div>
+  <h2>Trusted by <em>Leading</em><br>Brands</h2>
+  <p class="brands-note">Kyle has delivered high-performing content for brands across fashion, tech, beauty, fitness, automotive, supplements, and more. A proven partner for brands that want authentic reach.</p>
+  <div class="brand-logo-grid">
+    <!-- Row 1: Major brands with Clearbit logos -->
+    <div class="brand-logo-cell">
+      <img class="brand-logo-img" src="https://logo.clearbit.com/fashionnova.com" alt="Fashion Nova" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <div class="brand-logo-fallback" style="display:none">Fashion Nova</div>
+    </div>
+    <div class="brand-logo-cell">
+      <img class="brand-logo-img" src="https://logo.clearbit.com/adidas.com" alt="Adidas" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <div class="brand-logo-fallback" style="display:none">Adidas</div>
+    </div>
+    <div class="brand-logo-cell">
+      <img class="brand-logo-img" src="https://logo.clearbit.com/netflix.com" alt="Netflix" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <div class="brand-logo-fallback" style="display:none">Netflix</div>
+    </div>
+    <div class="brand-logo-cell">
+      <img class="brand-logo-img" src="https://logo.clearbit.com/hp.com" alt="HP" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <div class="brand-logo-fallback" style="display:none">HP</div>
+    </div>
+    <div class="brand-logo-cell">
+      <img class="brand-logo-img" src="https://logo.clearbit.com/dodge.com" alt="Dodge Ram" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <div class="brand-logo-fallback" style="display:none">Dodge Ram</div>
+    </div>
+
+    <!-- Row 2 -->
+    <div class="brand-logo-cell">
+      <img class="brand-logo-img" src="https://logo.clearbit.com/mnml.com" alt="MNML" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <div class="brand-logo-fallback" style="display:none">MNML</div>
+    </div>
+    <div class="brand-logo-cell">
+      <img class="brand-logo-img" src="https://logo.clearbit.com/laroche-posay.us" alt="La Roche-Posay" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <div class="brand-logo-fallback" style="display:none">La Roche-Posay</div>
+    </div>
+    <div class="brand-logo-cell">
+      <img class="brand-logo-img" src="https://logo.clearbit.com/poizon.com" alt="Poizon" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <div class="brand-logo-fallback" style="display:none">Poizon</div>
+    </div>
+    <div class="brand-logo-cell">
+      <div class="brand-logo-fallback">One of One<br>Supplement</div>
+    </div>
+    <div class="brand-logo-cell">
+      <img class="brand-logo-img" src="https://logo.clearbit.com/darryring.com" alt="Darry Ring" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <div class="brand-logo-fallback" style="display:none">Darry Ring</div>
+    </div>
+
+    <!-- Row 3 -->
+    <div class="brand-logo-cell">
+      <img class="brand-logo-img" src="https://logo.clearbit.com/funnyfuzzy.com" alt="Funny Fuzzy" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <div class="brand-logo-fallback" style="display:none">Funny Fuzzy</div>
+    </div>
+    <div class="brand-logo-cell">
+      <div class="brand-logo-fallback">Inopro</div>
+    </div>
+    <div class="brand-logo-cell">
+      <img class="brand-logo-img" src="https://logo.clearbit.com/cybex-online.com" alt="Cybex" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <div class="brand-logo-fallback" style="display:none">Cybex</div>
+    </div>
+    <div class="brand-logo-cell">
+      <img class="brand-logo-img" src="https://logo.clearbit.com/thegld.com" alt="GLD" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <div class="brand-logo-fallback" style="display:none">GLD</div>
+    </div>
+    <div class="brand-logo-cell">
+      <img class="brand-logo-img" src="https://logo.clearbit.com/nestig.com" alt="Nestig" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <div class="brand-logo-fallback" style="display:none">Nestig</div>
+    </div>
+
+    <!-- Row 4 -->
+    <div class="brand-logo-cell">
+      <img class="brand-logo-img" src="https://logo.clearbit.com/gatsport.com" alt="GAT Supplements" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <div class="brand-logo-fallback" style="display:none">GAT Supplements</div>
+    </div>
+    <div class="brand-logo-cell">
+      <div class="brand-logo-fallback">Sports Coffee</div>
+    </div>
+    <div class="brand-logo-cell">
+      <img class="brand-logo-img" src="https://logo.clearbit.com/hyrox.com" alt="Hyrox" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <div class="brand-logo-fallback" style="display:none">Hyrox</div>
+    </div>
+    <div class="brand-logo-cell">
+      <img class="brand-logo-img" src="https://logo.clearbit.com/alaninutrition.com" alt="Alani Nu" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <div class="brand-logo-fallback" style="display:none">Alani Nu</div>
+    </div>
+    <div class="brand-logo-cell">
+      <img class="brand-logo-img" src="https://logo.clearbit.com/zenwater.com" alt="Zen Water" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <div class="brand-logo-fallback" style="display:none">Zen Water</div>
+    </div>
+  </div>
+  <p style="margin-top: 1.5rem; font-size: 0.72rem; color: var(--warm-gray); letter-spacing: 0.06em;">+ many more across 10+ content niches. Full brand history available upon request.</p>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-label">Services</div>
+  <h2>What Kyle <em>Creates</em><br>For Your Brand</h2>
+  <p class="services-intro">Every deliverable is crafted with platform fluency, audience trust, and brand goals in mind — no stiff, scripted ads. Just content that actually converts.</p>
+  <div class="services-grid">
+
+    <div class="service-card">
+      <div class="service-icon">📱</div>
+      <div class="service-title">Short-Form Video</div>
+      <div class="service-desc">Kyle's bread and butter — vertical video content engineered for TikTok, Instagram Reels, and YouTube Shorts. Hook-first, authentic, and built to stop the scroll.</div>
+      <ul class="service-includes">
+        <li>Scripting &amp; concept development</li>
+        <li>On-camera filming &amp; editing</li>
+        <li>Custom hooks and CTAs</li>
+        <li>Caption &amp; hashtag strategy</li>
+        <li>1 round of revisions included</li>
+      </ul>
+      <div class="service-note">Available as: 1 video · 3-pack · 5-pack · Monthly retainer</div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">🎯</div>
+      <div class="service-title">Sponsored Post / Integration</div>
+      <div class="service-desc">Seamless brand integrations woven into Kyle's organic content — feels like a recommendation from a trusted friend, not a billboard. Posted to his existing audience for maximum reach.</div>
+      <ul class="service-includes">
+        <li>Brand integration in organic content</li>
+        <li>Posted to Kyle's platform(s) of choice</li>
+        <li>Story &amp; feed options available</li>
+        <li>Disclosure-compliant</li>
+        <li>Performance insights shared post-campaign</li>
+      </ul>
+      <div class="service-note">Platforms: Instagram · TikTok · Facebook · YouTube</div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">🎬</div>
+      <div class="service-title">UGC Raw Content</div>
+      <div class="service-desc">Kyle creates authentic, ad-ready content delivered directly to the brand — no posting required. Ideal for paid ads, website assets, email marketing, and retail use.</div>
+      <ul class="service-includes">
+        <li>Full commercial usage rights</li>
+        <li>Multiple hook variations available</li>
+        <li>Unboxing, review, lifestyle formats</li>
+        <li>Delivered as clean, edited files</li>
+        <li>Faster turnaround than sponsored posts</li>
+      </ul>
+      <div class="service-note">Best for: paid ad creative, website content, retail</div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">📦</div>
+      <div class="service-title">Brand Partnership Packages</div>
+      <div class="service-desc">Multi-deliverable campaigns for brands that want consistent presence and deeper storytelling. Bundled pricing, priority scheduling, and dedicated campaign strategy.</div>
+      <ul class="service-includes">
+        <li>Minimum 3-video bundle</li>
+        <li>Cross-platform content variations</li>
+        <li>Campaign brief collaboration</li>
+        <li>Discounted per-deliverable rate</li>
+        <li>Monthly retainer options available</li>
+      </ul>
+      <div class="service-note">Ideal for: product launches, seasonal campaigns, ongoing partnerships</div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">▶️</div>
+      <div class="service-title">Long-Form YouTube Content</div>
+      <div class="service-desc">Dedicated YouTube integrations or standalone sponsored videos. Higher production value, longer audience attention, and evergreen discoverability.</div>
+      <ul class="service-includes">
+        <li>Mid-roll or dedicated video formats</li>
+        <li>Scripted integration or full review</li>
+        <li>Thumbnail &amp; SEO-optimized title</li>
+        <li>Long-term organic search visibility</li>
+        <li>Great for high-consideration purchases</li>
+      </ul>
+      <div class="service-note">Available on: YouTube (@kylefullerofficial · 43K subscribers)</div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">🤝</div>
+      <div class="service-title">Ambassador / Long-Term Partner</div>
+      <div class="service-desc">For brands looking for an ongoing face and voice. Kyle becomes a dedicated advocate — showing up consistently in his content, building trust with his audience on your brand's behalf.</div>
+      <ul class="service-includes">
+        <li>Exclusive or category-exclusive options</li>
+        <li>Monthly content cadence</li>
+        <li>Early product access &amp; co-creation</li>
+        <li>Affiliate/commission structures available</li>
+        <li>Custom terms negotiated per brand</li>
+      </ul>
+      <div class="service-note">Best for: brands seeking consistent presence & community trust</div>
+    </div>
+
+  </div>
+
+  <div class="services-addons">
+    <div style="grid-column: 1/-1; margin-bottom: 0.5rem;">
+      <div class="section-label" style="margin-bottom: 0;">Add-On Options</div>
+    </div>
+    <div class="addon-item"><div class="addon-dot"></div><span><strong style="color: var(--off-white);">Usage Rights Extension</strong> — License content for paid ads or whitelisting (TikTok Spark Ads / Instagram Partnership Ads)</span></div>
+    <div class="addon-item"><div class="addon-dot"></div><span><strong style="color: var(--off-white);">Rush Turnaround</strong> — Expedited delivery for time-sensitive launches or seasonal campaigns</span></div>
+    <div class="addon-item"><div class="addon-dot"></div><span><strong style="color: var(--off-white);">Multi-Platform Cross-Post</strong> — Same content published simultaneously across Instagram, TikTok &amp; Facebook</span></div>
+    <div class="addon-item"><div class="addon-dot"></div><span><strong style="color: var(--off-white);">Exclusivity Clause</strong> — Category exclusivity for a defined period to protect your brand's position in Kyle's feed</span></div>
+    <div class="addon-item"><div class="addon-dot"></div><span><strong style="color: var(--off-white);">Additional Hook Variations</strong> — Multiple opening hooks on a single video for A/B ad testing</span></div>
+    <div class="addon-item"><div class="addon-dot"></div><span><strong style="color: var(--off-white);">Product Gifting + Review</strong> — Organic unboxing/review content without guaranteed posting obligation</span></div>
+  </div>
+
+  <div class="services-cta">
+    <p><strong>Ready to discuss rates and what's right for your brand?</strong> Every partnership is custom-quoted based on deliverables, usage rights, platform, and campaign scope. Reach out to start the conversation.</p>
+    <a href="mailto:fullerkyleofficial@gmail.com" class="btn-primary">Request a Quote</a>
+  </div>
+</section>
+
+<!-- SOCIAL -->
+<section id="social" style="padding-top: 5rem; padding-bottom: 5rem;">
+  <div class="section-label">Find Kyle Online</div>
+  <h2>Follow the <em>Journey</em></h2>
+  <div class="social-grid">
+    <a href="https://www.instagram.com/kylefullerofficial" target="_blank" class="social-card">
+      <div class="social-icon">📸</div>
+      <div class="social-handle">@kylefullerofficial</div>
+      <div class="social-followers">1.4M</div>
+      <div class="social-platform">Instagram</div>
+    </a>
+    <a href="https://www.tiktok.com/@kylefullerofficial" target="_blank" class="social-card">
+      <div class="social-icon">🎵</div>
+      <div class="social-handle">@kylefullerofficial</div>
+      <div class="social-followers">2.6M</div>
+      <div class="social-platform">TikTok</div>
+    </a>
+    <a href="https://www.facebook.com/kylefullerofficial" target="_blank" class="social-card">
+      <div class="social-icon">👥</div>
+      <div class="social-handle">@kylefullerofficial</div>
+      <div class="social-followers">500K</div>
+      <div class="social-platform">Facebook</div>
+    </a>
+    <a href="https://www.youtube.com/@kylefullerofficial" target="_blank" class="social-card">
+      <div class="social-icon">▶️</div>
+      <div class="social-handle">@kylefullerofficial</div>
+      <div class="social-followers">43K</div>
+      <div class="social-platform">YouTube</div>
+    </a>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<div id="contact">
+  <div>
+    <div class="contact-label">Let's Build Together</div>
+    <h2 style="color: var(--black);">Ready to<br>Partner Up?</h2>
+    <p class="contact-tagline">"Authentic content.<br>Real results."</p>
+  </div>
+  <div class="contact-right">
+    <div class="contact-label">Email</div>
+    <a href="mailto:fullerkyleofficial@gmail.com" class="contact-email">fullerkyleofficial@gmail.com</a>
+    <div class="contact-label">Find Kyle on Social</div>
+    <div class="contact-social">
+      <a href="https://www.instagram.com/kylefullerofficial" target="_blank" class="social-pill">Instagram</a>
+      <a href="https://www.tiktok.com/@kylefullerofficial" target="_blank" class="social-pill">TikTok</a>
+      <a href="https://www.facebook.com/kylefullerofficial" target="_blank" class="social-pill">Facebook</a>
+      <a href="https://www.youtube.com/@kylefullerofficial" target="_blank" class="social-pill">YouTube</a>
+    </div>
+    <div style="margin-top: 2rem;">
+      <a href="mailto:fullerkyleofficial@gmail.com" class="btn-primary" style="display: inline-block; background: var(--black); color: var(--gold);">Send a Partnership Inquiry</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 Kyle Fuller · All rights reserved</p>
+  <p>@kylefullerofficial on Instagram · TikTok · Facebook · YouTube</p>
+</footer>
+
+</body>
+</html>
