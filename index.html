@@ -263,6 +263,21 @@
   .aud-note span { font-size: 0.75rem; color: rgba(245,241,235,0.6); letter-spacing: 0.05em; }
 
   /* ── PORTFOLIO ── */
+ .specialty-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+.specialty-grid-1 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+.specialty-grid-1 .video-card {
+  grid-column: 2;
+}
   #portfolio { background: var(--black); }
   .portfolio-intro { max-width: 55ch; margin-top: 0.5rem; color: rgba(245,241,235,0.6); line-height: 1.7; }
   .portfolio-grid {
